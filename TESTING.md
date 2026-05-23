@@ -1,4 +1,4 @@
-# Manual Test Plan — Ultimate RTL
+# Manual Test Plan for Ultimate RTL
 
 Definition-of-Done verification per SPEC §10. Run before each release.
 
@@ -32,16 +32,16 @@ For each row, check ☐ → ✅ once verified, or ☐ → ❌ + note the issue.
 ## Global tests
 
 - ☐ **F. Persistence across browser restart.**
-  Set toggle OFF → close Chrome fully → reopen → toggle is still OFF.
+  Set toggle OFF, close Chrome fully, reopen. Toggle is still OFF.
   Repeat with ON.
 
 - ☐ **G. No console errors.**
-  DevTools → Console on each site — no red errors mentioning
+  DevTools → Console on each site. No red errors mentioning
   `chrome-extension://` or Ultimate RTL.
 
 - ☐ **H. Popup status text reflects current tab.**
-  On a supported site → "RTL is ON/OFF for <hostname>."
-  On an unsupported site → "Open a supported site to see it."
+  On a supported site: "RTL is ON/OFF for <hostname>."
+  On an unsupported site: "Open a supported site to see it."
 
 - ☐ **I. Default-ON on first install.**
   Remove the extension, install unpacked again. Toggle is ON by default.
@@ -58,6 +58,6 @@ For each row, check ☐ → ✅ once verified, or ☐ → ❌ + note the issue.
   side of its container (RTL text inside reads correctly, only the
   bubble's container alignment is LTR).
 - Claude: conversation title in the top bar stays LTR.
-- Perplexity, Copilot, Grok: message-level selectors are not captured —
+- Perplexity, Copilot, Grok: message-level selectors are not captured.
   RTL relies on the browser's bidi algorithm via the generic composer
   rule. Functional but more fragile to site redesigns.

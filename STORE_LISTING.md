@@ -1,4 +1,4 @@
-# Chrome Web Store Listing — Ultimate RTL
+# Chrome Web Store Listing for Ultimate RTL
 
 Copy/paste-ready text for the developer dashboard.
 
@@ -10,10 +10,10 @@ Copy/paste-ready text for the developer dashboard.
 Ultimate RTL
 ```
 
-## Short description (≤132 chars — manifest "description" field)
+## Short description (≤132 chars, used in manifest "description" field)
 
 ```
-Right-to-left layout for Claude, ChatGPT, Gemini, Perplexity, Copilot, DeepSeek, Grok — natural Hebrew/Arabic chat.
+Right-to-left layout for Claude, ChatGPT, Gemini, Perplexity, Copilot, DeepSeek, Grok. Natural Hebrew/Arabic chat.
 ```
 
 ## Category
@@ -51,7 +51,7 @@ Supported sites:
 Features:
 • One simple on/off toggle in the popup.
 • Per-message direction detection: a Hebrew message reads RTL, an
-  English message stays LTR — automatic, no manual switching.
+  English message stays LTR. Automatic, no manual switching.
 • Code blocks are protected and stay left-to-right.
 • Works offline. No account, no server, no telemetry.
 • Open source under the MIT license.
@@ -65,20 +65,20 @@ listing.
 How it works:
 The extension injects a small stylesheet into chat pages and tags message
 elements so the browser's bidirectional text algorithm can apply the
-correct direction per message. That's it — no AI, no rewriting, no
+correct direction per message. That's it. No AI, no rewriting, no
 content analysis.
 ```
 
 ---
 
-## Screenshots (required: 1–5; recommended size 1280×800)
+## Screenshots (required: 1 to 5; recommended size 1280×800)
 
 Prepare screenshots showing each supported site BEFORE / AFTER the toggle
 is enabled, focused on:
 
-1. claude.ai — a Hebrew-with-English message reading correctly.
-2. chatgpt.com — same, with a code block staying LTR.
-3. gemini.google.com — assistant response reading RTL.
+1. claude.ai with a Hebrew-with-English message reading correctly.
+2. chatgpt.com with the same, including a code block staying LTR.
+3. gemini.google.com with an assistant response reading RTL.
 4. The popup UI showing the toggle.
 5. (optional) chat.deepseek.com or perplexity.ai for variety.
 
@@ -97,7 +97,7 @@ user data?":
 - **Answer: No.**
 - For each data category (personal info, financial info, health info,
   authentication info, personal communications, location, web history,
-  user activity, website content) — select "Not collected".
+  user activity, website content), select "Not collected".
 - Single purpose: "Display chat interfaces in right-to-left direction."
 - Justify each permission:
   - `storage`: remember the user's on/off preference.

@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Ultimate RTL",
   "version": "1.0.0",
-  "description": "Right-to-left layout for Claude, ChatGPT, Gemini, Perplexity, Copilot, DeepSeek, Grok — natural Hebrew/Arabic chat.",
+  "description": "Right-to-left layout for Claude, ChatGPT, Gemini, Perplexity, Copilot, DeepSeek, Grok. Natural Hebrew/Arabic chat.",
   "homepage_url": "https://dvirnaaman.co.il/",
   "permissions": ["storage"],
   "host_permissions": [

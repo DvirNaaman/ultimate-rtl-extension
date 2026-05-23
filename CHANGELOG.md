@@ -4,7 +4,7 @@ All notable changes to Ultimate RTL are documented in this file. Format
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] — 2026-05-23
+## [1.0.0] (2026-05-23)
 
 ### First public release
 Initial Chrome Web Store release. Right-to-left layout for the seven
@@ -25,7 +25,7 @@ site redesigns are one-file fixes.
 
 Open source under the MIT license. No data collection, no telemetry.
 
-## [0.2.0] — 2026-05-23
+## [0.2.0] (2026-05-23)
 
 ### Added
 - Four additional target sites: Perplexity, Microsoft Copilot, DeepSeek,
@@ -36,7 +36,7 @@ Open source under the MIT license. No data collection, no telemetry.
 - `homepage_url` in manifest pointing to https://dvirnaaman.co.il/.
 - Real PNG icons (16/48/128) + `icon.svg` source.
 - `LICENSE` (MIT), `PRIVACY.md`, `STORE_LISTING.md`, `TESTING.md`.
-- `scripts/smoke-check.mjs` — automated build verification (75 checks).
+- `scripts/smoke-check.mjs`, an automated build verification (75 checks).
 
 ### Fixed
 - Race condition in `content-script.js`: message listener now registered
@@ -44,7 +44,7 @@ Open source under the MIT license. No data collection, no telemetry.
   no longer dropped.
 - Manifest description trimmed to 119 chars (Chrome Web Store ≤132 limit).
 
-## [0.1.0] — 2026-05-23
+## [0.1.0] (2026-05-23)
 
 ### Added
 - Initial v1 skeleton + working RTL transformation:

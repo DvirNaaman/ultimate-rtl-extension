@@ -15,8 +15,8 @@
 ## What it does
 
 Modern AI chat sites render their interface left-to-right. When you write
-in Hebrew, Arabic or any right-to-left language — especially mixed with
-English words, numbers, or code — the text bounces around: letters jump,
+in Hebrew, Arabic or any right-to-left language, especially mixed with
+English words, numbers, or code, the text bounces around: letters jump,
 punctuation lands on the wrong side, words look reversed.
 
 Ultimate RTL fixes that by injecting a small stylesheet into the chat
@@ -24,7 +24,7 @@ container so the browser's native bidirectional text algorithm can finally
 do its job. The user input and the AI's response both read naturally,
 right-aligned and correctly ordered.
 
-The extension UI itself is in **English** — this is a tool for anyone who
+The extension UI itself is in **English**. This is a tool for anyone who
 wants an RTL workflow, not only Hebrew/Arabic speakers.
 
 ---
@@ -71,28 +71,31 @@ wants an RTL workflow, not only Hebrew/Arabic speakers.
 
 ## Supported AI assistants
 
-| Site | URL |
-|---|---|
-| Claude | [claude.ai](https://claude.ai) |
-| ChatGPT | [chatgpt.com](https://chatgpt.com) |
-| Gemini | [gemini.google.com](https://gemini.google.com) |
-| Perplexity | [perplexity.ai](https://www.perplexity.ai) |
-| Microsoft Copilot | [copilot.microsoft.com](https://copilot.microsoft.com) |
-| DeepSeek | [chat.deepseek.com](https://chat.deepseek.com) |
-| Grok | [grok.com](https://grok.com) |
+| Site | URL | Selector coverage |
+|---|---|---|
+| Claude | [claude.ai](https://claude.ai) | Full (real selectors captured) |
+| ChatGPT | [chatgpt.com](https://chatgpt.com) | Full (real selectors captured) |
+| Gemini | [gemini.google.com](https://gemini.google.com) | Full (real selectors captured) |
+| DeepSeek | [chat.deepseek.com](https://chat.deepseek.com) | Full (real selectors captured) |
+| Perplexity | [perplexity.ai](https://www.perplexity.ai) | Generic (browser bidi + composer rule) |
+| Microsoft Copilot | [copilot.microsoft.com](https://copilot.microsoft.com) | Generic (browser bidi + composer rule) |
+| Grok | [grok.com](https://grok.com) | Generic (browser bidi + composer rule) |
 
-Each site has its own selectors file in `src/sites/<name>.js` and a
-matching stylesheet in `src/styles/<name>.css`, so when a site changes
-its HTML the fix is a one-file edit.
+Each site has its own config file in `src/sites/<name>.js` and a matching
+stylesheet in `src/styles/<name>.css`, so when a site changes its HTML the
+fix is a one-file edit. The "Generic" sites have message-level selectors
+stubbed out and rely on the browser's bidi algorithm plus a generic
+contenteditable rule; capturing their real selectors is a planned
+hardening pass (see [Contributing](#contributing)).
 
-Adding a new site is intentionally low-friction — see
+Adding a new site is intentionally low-friction. See
 [Adding a new site](#adding-a-new-site) below.
 
 ---
 
 ## Supported languages
 
-Ultimate RTL is direction-agnostic — it doesn't translate or detect
+Ultimate RTL is direction-agnostic. It doesn't translate or detect
 language, it only flips the layout. That means it helps with **any**
 language that is written right-to-left, including:
 
@@ -110,7 +113,7 @@ language that is written right-to-left, including:
 Mixed-direction text is handled correctly. Each chat message gets
 `dir="auto"`, so a Hebrew message reads RTL while an English message in
 the same conversation stays LTR. The browser's bidi algorithm does the
-work — Ultimate RTL just gives it the right hints.
+work, and Ultimate RTL just gives it the right hints.
 
 ---
 
@@ -118,14 +121,14 @@ work — Ultimate RTL just gives it the right hints.
 
 - ✅ One simple on/off toggle in the popup. Default ON.
 - ✅ Per-message direction detection (`dir="auto"`).
-- ✅ Code blocks are explicitly preserved as LTR — your snippets stay
+- ✅ Code blocks are explicitly preserved as LTR, so your snippets stay
   readable.
-- ✅ Streaming responses are handled by a `MutationObserver` — new
+- ✅ Streaming responses are handled by a `MutationObserver`, so new
   message nodes get the RTL treatment as soon as they appear.
 - ✅ Toggle state syncs across browsers via `chrome.storage.sync`.
 - ✅ Fully offline. No account, no server, no telemetry, no analytics.
 - ✅ Open source under the MIT license.
-- ✅ Minimal permissions — only the seven supported domains, no
+- ✅ Minimal permissions: only the seven supported domains, no
   `<all_urls>`.
 
 ---
@@ -151,7 +154,7 @@ Then in Chrome:
 2. Turn on **Developer mode** (top right).
 3. Click **Load unpacked**.
 4. Select the **`dist/`** folder (not the project root).
-5. Pin the Ultimate RTL icon in the toolbar — click it to toggle.
+5. Pin the Ultimate RTL icon in the toolbar, then click it to toggle.
 
 For continuous rebuild during development:
 
@@ -201,8 +204,8 @@ Full design: [SPEC.md](SPEC.md). Test plan: [TESTING.md](TESTING.md).
 5. Add the hostname to `TARGET_ORIGINS` in
    `src/background/service-worker.js` and to `SUPPORTED_HOSTS` in
    `src/popup/popup.js`.
-6. Run `npm run build && node scripts/smoke-check.mjs` — must show
-   `XX/XX passed`.
+6. Run `npm run build && node scripts/smoke-check.mjs`. All 75 checks
+   must pass.
 
 No core changes required.
 
@@ -222,7 +225,7 @@ Full details: [PRIVACY.md](PRIVACY.md).
 ## Project structure
 
 ```
-ultimate-rtl/
+ultimate-rtl-extension/
 ├── manifest.json              MV3 manifest
 ├── build.mjs                  esbuild driver
 ├── scripts/
@@ -253,7 +256,8 @@ Pull requests welcome. Useful contributions include:
 
 - Capturing real selectors for sites that currently rely on the generic
   composer rule (Perplexity, Copilot, Grok).
-- Adding new supported sites — see [Adding a new site](#adding-a-new-site).
+- Adding new supported sites. See
+  [Adding a new site](#adding-a-new-site).
 - Fixing site-specific edge cases (e.g. user-bubble alignment on Gemini
   and Copilot).
 - Translations of the popup UI (currently English only by design, but a
@@ -269,6 +273,6 @@ Before submitting:
 
 ## License
 
-[MIT](LICENSE) — © 2026 Dvir Naaman.
+[MIT](LICENSE). © 2026 Dvir Naaman.
 
 Free to use, copy, modify, distribute. No warranty.

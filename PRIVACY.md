@@ -1,4 +1,4 @@
-# Privacy Policy — Ultimate RTL
+# Privacy Policy for Ultimate RTL
 
 _Last updated: 2026-05-23_
 
@@ -10,8 +10,8 @@ any server.
 
 ## What the extension stores
 
-- **One boolean setting** — whether RTL transformation is currently enabled
-  (`rtlEnabled: true | false`).
+- **One boolean setting**, namely whether RTL transformation is currently
+  enabled (`rtlEnabled: true | false`).
 - Stored in Chrome's local sync storage (`chrome.storage.sync`), which is
   scoped to your Google account if Chrome Sync is enabled. The value is
   visible only to you and to the Ultimate RTL extension.
@@ -32,7 +32,7 @@ elements at the following sites only:
 - grok.com
 
 It **reads no message contents**, does not log, transmit, or analyze any
-text. It also does not modify the meaning or content of messages — only
+text. It also does not modify the meaning or content of messages, only
 their visual direction and alignment.
 
 ## What the extension does NOT do
@@ -45,8 +45,8 @@ their visual direction and alignment.
 
 ## Permissions explained
 
-- `storage` — to remember the on/off toggle across sessions.
-- Host permissions for the seven domains above — required so the extension
+- `storage`: used to remember the on/off toggle across sessions.
+- Host permissions for the seven domains above: required so the extension
   can inject its CSS into the chat pages. Nothing broader.
 
 ## Open source
