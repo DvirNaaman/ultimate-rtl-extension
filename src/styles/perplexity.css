@@ -1,0 +1,14 @@
+/* perplexity.ai overrides.
+ *
+ * TODO: add message/container selectors once captured from live DOM.
+ * The composer rule below is generic and should work out of the box.
+ */
+
+textarea,
+div[contenteditable="true"],
+.ProseMirror,
+.ProseMirror p {
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: plaintext;
+}

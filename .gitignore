@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build output — produced by `npm run build`
+dist/
+
+# Distribution artifacts — published via GitHub Releases, not tracked
+*.zip
+
+# Logs / OS clutter
+*.log
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp

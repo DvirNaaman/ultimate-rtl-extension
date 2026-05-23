@@ -1,0 +1,26 @@
+/* Ultimate RTL — base rules shared by all sites.
+ *
+ * Site-specific selector targeting lives in the per-site CSS files; this file
+ * only contains rules that are safe and universal:
+ *   1. Code blocks must never be flipped.
+ *   2. Elements we tagged with data-ultimate-rtl-dir get dir="auto" semantics
+ *      reinforced (the attribute itself does the real work; this is a belt-
+ *      and-suspenders text-align hint).
+ */
+
+pre,
+code,
+kbd,
+samp,
+pre *,
+code *,
+[class*="code-block"],
+[class*="codeBlock"] {
+  direction: ltr !important;
+  text-align: left !important;
+  unicode-bidi: isolate;
+}
+
+[data-ultimate-rtl-dir] {
+  unicode-bidi: plaintext;
+}

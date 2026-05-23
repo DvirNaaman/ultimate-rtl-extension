@@ -1,0 +1,43 @@
+/* chatgpt.com — RTL targeting. Selectors captured 2026-05-23.
+ * !important needed to override ChatGPT's Tailwind utility classes.
+ */
+
+[data-turn="user"],
+[data-turn="user"] p,
+[data-turn="user"] h1,
+[data-turn="user"] h2,
+[data-turn="user"] h3,
+[data-turn="user"] li,
+[data-turn="user"] .whitespace-pre-wrap,
+[data-turn="assistant"],
+[data-turn="assistant"] p,
+[data-turn="assistant"] h1,
+[data-turn="assistant"] h2,
+[data-turn="assistant"] h3,
+[data-turn="assistant"] h4,
+[data-turn="assistant"] h5,
+[data-turn="assistant"] h6,
+[data-turn="assistant"] li,
+[data-turn="assistant"] blockquote,
+.markdown,
+.markdown p,
+.markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6,
+.markdown ol, .markdown ul, .markdown li, .markdown blockquote {
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: plaintext;
+}
+
+/* Composer — ProseMirror inside data-composer-surface wrapper. */
+#prompt-textarea,
+#prompt-textarea p,
+#prompt-textarea div,
+[data-composer-surface="true"] [contenteditable="true"],
+[data-composer-surface="true"] .ProseMirror,
+[data-composer-surface="true"] .ProseMirror p,
+.ProseMirror,
+.ProseMirror p {
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: plaintext;
+}

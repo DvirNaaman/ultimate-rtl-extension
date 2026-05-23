@@ -1,0 +1,31 @@
+/* chat.deepseek.com — RTL targeting. Selectors captured 2026-05-23. */
+
+.ds-message,
+.ds-markdown,
+.ds-markdown-paragraph,
+.ds-assistant-message-main-content,
+.ds-markdown p,
+.ds-markdown h1,
+.ds-markdown h2,
+.ds-markdown h3,
+.ds-markdown h4,
+.ds-markdown h5,
+.ds-markdown h6,
+.ds-markdown ol,
+.ds-markdown ul,
+.ds-markdown li,
+.ds-markdown blockquote {
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: plaintext;
+}
+
+/* Composer rule — generic, kept for completeness. */
+textarea,
+div[contenteditable="true"],
+.ProseMirror,
+.ProseMirror p {
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: plaintext;
+}

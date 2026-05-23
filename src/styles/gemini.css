@@ -1,0 +1,45 @@
+/* gemini.google.com — RTL targeting. Selectors captured 2026-05-23.
+ *
+ * Bubble hierarchy:
+ *   <user-query-container>
+ *     <div class="user-query-container">
+ *       <div class="horizontal-container">
+ *         <div class="query-content">
+ *           <span class="user-query-bubble-with-background"> ← the bubble
+ */
+
+/* Text direction inside the bubble. */
+[data-test-id="luminous-collapsed-bubble"],
+[data-test-id="luminous-collapsed-bubble"] *,
+.user-query-bubble-with-background,
+.user-query-bubble-with-background * {
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: plaintext;
+}
+
+/* Push the bubble to the right by aligning the inline content inside its
+ * container, and force the flex row that wraps it to flex-end. */
+.query-content,
+user-query-content .query-content,
+user-query .query-content {
+  text-align: right !important;
+}
+
+.horizontal-container,
+user-query .horizontal-container,
+user-query-content .horizontal-container {
+  display: flex !important;
+  justify-content: flex-end !important;
+  text-align: right !important;
+}
+
+/* Composer — rich-textarea wraps a contenteditable. */
+rich-textarea [contenteditable="true"],
+rich-textarea [contenteditable="true"] *,
+.ql-editor,
+.ql-editor * {
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: plaintext;
+}

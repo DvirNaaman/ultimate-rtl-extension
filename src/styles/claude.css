@@ -1,0 +1,57 @@
+/* Claude.ai — RTL targeting. Selectors captured 2026-05-23.
+ *
+ * !important is required because Claude uses Tailwind utility classes
+ * (text-left, etc.) on the same elements; without it our rules lose the
+ * specificity tie-breaker.
+ */
+
+[data-testid="user-message"],
+[data-testid="user-message"] *,
+.font-claude-response-body,
+.standard-markdown,
+.standard-markdown h1,
+.standard-markdown h2,
+.standard-markdown h3,
+.standard-markdown h4,
+.standard-markdown h5,
+.standard-markdown h6,
+.standard-markdown p,
+.standard-markdown ol,
+.standard-markdown ul,
+.standard-markdown li,
+.standard-markdown blockquote {
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: plaintext;
+}
+
+/* Blockquote (citation) — Tailwind border-l-4 + pl-4 must flip in RTL. */
+.standard-markdown blockquote {
+  border-left-width: 0 !important;
+  border-right-width: 4px !important;
+  border-right-style: solid !important;
+  border-right-color: rgb(128 128 128 / 0.2) !important;
+  padding-left: 0 !important;
+  padding-right: 1rem !important;
+  margin-left: 0 !important;
+  margin-right: 0.5rem !important;
+}
+
+/* Conversation title in the top bar. */
+[data-testid="chat-title-button"],
+[data-testid="chat-title-button"] .truncate,
+[data-testid="chat-title-button"] div {
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: plaintext;
+}
+
+/* Composer — ProseMirror contenteditable. */
+div[contenteditable="true"],
+.ProseMirror,
+.ProseMirror p,
+.ProseMirror div {
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: plaintext;
+}
